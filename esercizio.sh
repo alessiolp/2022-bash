@@ -11,15 +11,28 @@ a=$1
 b=$2
 file=$3 
 
-if [ $a -gt $b ]
- if [ -e $file ]
-   then 
-    echo "$file"
-   else 
-    ls -l 
- fi
+echo "Numero 1: $a";       #stampa la variabile a
+echo "Numero 2: $b";        #stampa la variabile b
+echo "Nome file: $file";     #stampa il nome del file 
 
- else
-  echo "errore"
+
+if [ $a -gt $b ]
+  then
+    echo "Il numero 1 è piu grande del 2."
+    if [ -e $file ]
+      then 
+        echo "Stampo il contenuto del file."
+        cat $file
+      else 
+        echo "I permessi dei file sono:"
+        ls -l 
+    fi
+
+  else
+    echo "Il primo numero è minore del secondo."
 fi  
   
+echo "scrivere qualcosa per continuare. "
+read var
+echo "hai scritto: "
+echo $var
